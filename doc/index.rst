@@ -1,17 +1,64 @@
-.. Dobot ROS2 Driver Documentation documentation master file, created by
-   sphinx-quickstart on Wed Feb 11 14:16:48 2026.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+WMX ROS2 Driver Documentation
+===============================
 
-Dobot ROS2 Driver Documentation documentation
-=============================================
+Overview
+--------
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+Welcome to the WMX ROS2 Driver documentation. This project provides
+ROS2 packages for controlling Dobot collaborative robots (CR series)
+with MoveIt2 motion planning integration.
 
+**Supported Scenarios:**
+
+- MoveIt2 Motion Planning
+- Isaac cuMotion (GPU-accelerated trajectory planning)
+- Custom Planner Integration
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Getting Started
 
+   environment/environment
+   quick_start/quick_start
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Packages
+
+   packages/packages
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Integration Scenarios
+
+   integration/integration
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Architecture & Design
+
+   architecture/architecture
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Performance
+
+   performance/performance
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   api_reference/api_reference
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Deployment
+
+   deployment/deployment
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Support
+
+   troubleshooting/troubleshooting
