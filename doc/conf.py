@@ -1,7 +1,7 @@
 # -- Project information -----------------------------------------------------
-project = 'Dobot ROS2 Driver Documentation'
-copyright = '2026, Your Organization'
-author = 'Your Organization'
+project = 'WMX ROS2 Documentation'
+copyright = '2026, Movensys'
+author = 'Movensys'
 release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
@@ -24,10 +24,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
-html_logo = '_static/logo.png'         # Your logo (optional)
 html_theme_options = {
     'logo_only': False,
-    'display_version': True,
     'navigation_depth': 3,
     'collapse_navigation': False,
 }

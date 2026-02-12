@@ -1,12 +1,13 @@
 Quick Start
 ===========
 
-This guide will help you get up and running with the WMX ROS2 Driver.
+This guide will help you get up and running with the WMX ROS2 application.
 
 .. note::
 
-   This guide assumes basic familiarity with ROS2, Ubuntu, and Dobot hardware.
-   See the :doc:`../environment/system_requirements` page.
+   This guide assumes basic familiarity with ROS2 and Ubuntu.
+   See :doc:`../environment/system_requirements` for hardware and software
+   prerequisites.
 
 .. toctree::
    :maxdepth: 2

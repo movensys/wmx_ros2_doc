@@ -1,18 +1,21 @@
-WMX ROS2 Driver Documentation
-===============================
+WMX ROS2 Documentation
+=======================
 
 Overview
 --------
 
-Welcome to the WMX ROS2 Driver documentation. This project provides
-ROS2 packages for controlling Dobot collaborative robots (CR series)
-with MoveIt2 motion planning integration.
+Welcome to the WMX ROS2 documentation. This project provides ROS2 packages
+for controlling 6-DOF robotic manipulators through the WMX3 motion control
+platform over EtherCAT. The current supported robot is the **Dobot CR3A**.
 
-**Supported Scenarios:**
+**Key capabilities:**
 
-- MoveIt2 Motion Planning
-- Isaac cuMotion (GPU-accelerated trajectory planning)
-- Custom Planner Integration
+- Real-time joint control via WMX3 EtherCAT servo drives
+- MoveIt2 trajectory execution through the ``FollowJointTrajectory`` action
+- NVIDIA Isaac cuMotion GPU-accelerated planning support
+- Standalone axis control via ROS2 services and topics
+- Gripper control via EtherCAT digital I/O
+- Multi-simulator output (MoveIt2/RViz, Isaac Sim, Gazebo)
 
 .. toctree::
    :maxdepth: 2
@@ -50,6 +53,12 @@ with MoveIt2 motion planning integration.
    :caption: API Reference
 
    api_reference/api_reference
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Example Applications
+
+   examples/examples
 
 .. toctree::
    :maxdepth: 2

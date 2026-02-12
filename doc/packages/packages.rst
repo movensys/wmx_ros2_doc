@@ -1,11 +1,22 @@
 Packages
 ========
 
-Overview of the WMX ROS2 packages.
+The WMX ROS2 application consists of two packages that work together to
+provide motion control for robots with EtherCAT servo drives.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 70
+
+   * - Package
+     - Purpose
+   * - ``wmx_ros2_message``
+     - Custom ROS2 message and service interface definitions
+   * - ``wmx_ros2_package``
+     - Application nodes, launch files, and configuration
 
 .. toctree::
    :maxdepth: 2
 
-   dobot_description
-   dobot_robot_interface
-   dobot_moveit
+   wmx_ros2_message
+   wmx_ros2_package

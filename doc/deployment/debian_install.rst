@@ -3,13 +3,12 @@ Debian Package Install
 
 .. note::
 
-   Debian packages are not yet available.
+   Debian packages are not yet available. The WMX ROS2 application must
+   currently be built from source.
 
-Future Installation
--------------------
+See :doc:`source_build` for build instructions.
 
-.. code-block:: bash
+.. todo::
 
-   sudo apt-get update
-   sudo apt-get install ros-humble-wmx-dobot-moveit
-   sudo apt-get install ros-humble-wmx-dobot-robot-interface
+   Create ``apt``-installable Debian packages for ``wmx_ros2_message``
+   and ``wmx_ros2_package`` for streamlined deployment.
