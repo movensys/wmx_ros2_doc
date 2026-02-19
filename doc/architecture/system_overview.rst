@@ -12,53 +12,10 @@ WMX3 parameter mappings.
 Architecture Diagram
 --------------------
 
-.. code-block:: text
-
-   ┌─────────────────────────────────────────────────────────────────────┐
-   │                    MoveIt2 / Planning Layer                        │
-   │                                                                     │
-   │  ┌───────────────┐  ┌──────────────────┐  ┌─────────────────────┐  │
-   │  │    MoveIt2     │  │  Isaac cuMotion  │  │   Custom Planner    │  │
-   │  │ Motion Planner │  │  (GPU-accel.)    │  │                     │  │
-   │  └───────┬────────┘  └────────┬─────────┘  └──────────┬──────────┘  │
-   │          │                    │                        │             │
-   │          └────────────────────┼────────────────────────┘             │
-   │                               │                                     │
-   │              FollowJointTrajectory Action                           │
-   │                               │                                     │
-   ├───────────────────────────────┼─────────────────────────────────────┤
-   │                    ROS2 Interface Layer                             │
-   │                                                                     │
-   │  ┌────────────────────────────┴──────────────────────────────────┐  │
-   │  │          follow_joint_trajectory_server                       │  │
-   │  │  - Receives trajectory goals from MoveIt2                     │  │
-   │  │  - Converts to WMX3 spline commands                          │  │
-   │  │  - Controls gripper via I/O                                   │  │
-   │  └───────────────────────────────────────────────────────────────┘  │
-   │                                                                     │
-   │  ┌─────────────────────────────┐  ┌──────────────────────────────┐  │
-   │  │     manipulator_state       │  │   wmx_ros2_general_node      │  │
-   │  │  - Publishes /joint_states  │  │  - Engine lifecycle mgmt     │  │
-   │  │  - Reads encoder feedback   │  │  - Axis control services     │  │
-   │  │  - Gripper state via I/O    │  │  - Velocity/position cmds    │  │
-   │  │  - Multi-sim support        │  │  - Publishes axis state      │  │
-   │  └──────────────┬──────────────┘  └──────────────┬───────────────┘  │
-   │                 │                                 │                  │
-   ├─────────────────┼─────────────────────────────────┼──────────────────┤
-   │                 │      Hardware Layer              │                  │
-   │                 │                                  │                  │
-   │        ┌────────┴──────────────────────────────────┴───────────┐     │
-   │        │              WMX3 API (/opt/lmx/)                    │     │
-   │        │  CoreMotionApi | AdvancedMotionApi | IOApi | EcApi   │     │
-   │        └──────────────────────────┬───────────────────────────┘     │
-   │                                   │                                  │
-   │                          EtherCAT Fieldbus                          │
-   │                                   │                                  │
-   │        ┌──────────────────────────┴───────────────────────────┐     │
-   │        │              Servo Drives (6-DOF + Gripper)          │     │
-   │        │           e.g., Dobot CR3A servo motors              │     │
-   │        └──────────────────────────────────────────────────────┘     │
-   └─────────────────────────────────────────────────────────────────────┘
+.. image:: /_static/images/architecture_diagram.png
+   :alt: WMX ROS2 System Architecture - showing ROS2 Application Layer, WMX ROS2 Package with API modules, WMX3 Motion Engine, EtherCAT Master, and Hardware Layer
+   :width: 100%
+   :align: center
 
 Package Overview
 ----------------

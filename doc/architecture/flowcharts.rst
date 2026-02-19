@@ -123,63 +123,11 @@ MoveIt2 Trajectory Execution
 This flow shows the complete path from a MoveIt2 plan request to physical robot
 motion:
 
-.. code-block:: text
+.. image:: /_static/image/moveIt2_trajectory_flow.png
+   :alt: MoveIt2 Trajectory Execution
+   :width: 100%
+   :align: center 
 
-   ┌─────────────────────────┐
-   │  MoveIt2 / cuMotion /   │
-   │  Custom Planner          │
-   │                          │
-   │  1. Read /joint_states   │◄─────────────────────────────────┐
-   │  2. Plan trajectory      │                                   │
-   │  3. Send action goal     │                                   │
-   └────────────┬─────────────┘                                   │
-                │                                                  │
-     FollowJointTrajectory                                        │
-     Action Goal                                                  │
-                │                                                  │
-   ┌────────────▼─────────────┐                                   │
-   │  follow_joint_trajectory │                                   │
-   │  _server                 │                                   │
-   │                          │                                   │
-   │  4. handle_goal()        │                                   │
-   │     → ACCEPT_AND_EXECUTE │                                   │
-   │                          │                                   │
-   │  5. execute() [thread]   │                                   │
-   │     a. Validate points   │                                   │
-   │        (max 1000)        │                                   │
-   │     b. Extract positions │                                   │
-   │        & timestamps      │                                   │
-   │     c. Build spline cmd  │                                   │
-   │     d. Adjust timing     │                                   │
-   └────────────┬─────────────┘                                   │
-                │                                                  │
-     WMX3 AdvancedMotion API                                      │
-                │                                                  │
-   ┌────────────▼─────────────┐                      ┌────────────┴─────────────┐
-   │  WMX3 Engine             │                      │  manipulator_state       │
-   │                          │                      │                          │
-   │  6. StartCSplinePos()    │                      │  8. GetStatus()          │
-   │     Execute cubic spline │                      │     Read encoder data    │
-   │     across all joints    │                      │                          │
-   │                          │                      │  9. Publish /joint_states│
-   │  7. motion->Wait()       │                      │     (@ 500 Hz)          │
-   │     Block until complete │                      │                          │
-   └────────────┬─────────────┘                      └──────────────────────────┘
-                │                                               ▲
-        EtherCAT Fieldbus                                       │
-                │                                        EtherCAT Fieldbus
-   ┌────────────▼─────────────┐                                 │
-   │  Servo Drives (J1-J6)   │─────────────────────────────────┘
-   │                          │     Encoder feedback
-   │  Execute interpolated    │
-   │  motion commands         │
-   └──────────────────────────┘
-
-   ┌─────────────────────────┐
-   │  10. Goal succeeds      │
-   │      error_code = 0     │
-   │      Return to planner  │
-   └─────────────────────────┘
 
 Direct Axis Control Flow
 ^^^^^^^^^^^^^^^^^^^^^^^^^
