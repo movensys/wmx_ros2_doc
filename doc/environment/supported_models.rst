@@ -18,7 +18,7 @@ Currently Supported
      - Status
    * - Dobot CR3A
      - 6
-     - 3 kg
+     - 16.5 kg
      - Fully supported. Configuration files and WMX3 parameters included.
 
 The Dobot CR3A uses EtherCAT-connected servo drives (one per joint) plus
