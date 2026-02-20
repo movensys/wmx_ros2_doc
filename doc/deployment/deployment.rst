@@ -6,7 +6,7 @@ Source Build
 
 This section provides a quick reference for building from source. For the
 complete step-by-step guide with dependency installation, see
-:doc:`../getting_started`.
+:doc:`../getting_started/index`.
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -14,7 +14,7 @@ Prerequisites
 - Ubuntu 22.04 or 24.04
 - ROS2 Humble or Jazzy installed
 - LMX (WMX3 runtime) installed at ``/opt/lmx/``
-- ROS2 dependencies installed (see :doc:`../getting_started`)
+- ROS2 dependencies installed (see :doc:`../getting_started/index`)
 
 Clone and Build
 ^^^^^^^^^^^^^^^

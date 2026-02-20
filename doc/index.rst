@@ -10,7 +10,7 @@ platform over EtherCAT. The current supported robot is the **Dobot CR3A**.
 
 **Key capabilities:**
 
-- Follow the :doc:`getting_started` guide to set up your environment and get running.
+- Follow the :doc:`getting_started/index` guide to set up your environment and get running.
 - Browse the :doc:`packages/packages` for ``wmx_ros2_message`` and ``wmx_ros2_package`` details.
 - Explore :doc:`integration/integration` for MoveIt2 and Isaac cuMotion planning.
 - Review the :doc:`architecture/architecture` for system design and communication flow.
@@ -23,7 +23,7 @@ platform over EtherCAT. The current supported robot is the **Dobot CR3A**.
 .. toctree::
    :maxdepth: 3
 
-   getting_started
+   getting_started/index
    packages/packages
    integration/integration
    architecture/architecture

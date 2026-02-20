@@ -260,6 +260,36 @@ code.literal {
     font-weight: 600;
 }
 
+/* ---------- "On this page" links (NVIDIA-style) ---------- */
+.on-this-page {
+    margin: 1.5rem 0 2rem 0;
+}
+
+.on-this-page > p:first-child {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.on-this-page__links .line {
+    display: block;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.on-this-page__links .line a {
+    color: var(--movensys-green-dark) !important;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.on-this-page__links .line a:hover {
+    color: var(--movensys-green) !important;
+    text-decoration: underline;
+}
+
 /* ---------- Hide toctree listing on home page (sidebar-only) ---------- */
 .bd-article .toctree-wrapper {
     display: none;

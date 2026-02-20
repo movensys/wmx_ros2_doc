@@ -34,7 +34,7 @@ Prerequisites
 All examples require:
 
 - The core WMX ROS2 packages built and sourced
-  (see :doc:`../getting_started`)
+  (see :doc:`../getting_started/index`)
 - LMX (WMX3 runtime) installed at ``/opt/lmx/``
 - EtherCAT hardware connected (for physical robot operation)
 

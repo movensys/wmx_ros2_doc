@@ -126,7 +126,7 @@ Nodes Not Found
 - Source the workspace: ``source ~/wmx_ros2_ws/install/setup.bash``
 - Rebuild if needed: ``cd ~/wmx_ros2_ws && colcon build``
 - Check the two-stage build was done correctly (message package first).
-  See :doc:`../getting_started`.
+  See :doc:`../getting_started/index`.
 
 Build Errors
 ------------
