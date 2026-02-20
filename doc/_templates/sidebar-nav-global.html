@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
       li.style.position = "relative";
       var link = li.querySelector(":scope > a");
       if (link) {
-        link.parentNode.insertBefore(toggle, link);
+        link.after(toggle);
       }
     }
   });

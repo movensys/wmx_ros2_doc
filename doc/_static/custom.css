@@ -13,40 +13,61 @@
 }
 
 /* ---------- Global typography (match Getting Started) ---------- */
-.bd-article-container .bd-article {
-    font-size: 0.95rem;
-    line-height: 1.7;
+.bd-main .bd-content .bd-article-container {
+    font-size: 0.95rem !important;
+    line-height: 1.7 !important;
 }
 
-.bd-article-container .bd-article h1 {
+.bd-main .bd-content .bd-article-container h1,
+.bd-main .bd-content .bd-article-container article h1 {
     font-size: 1.5rem !important;
-    font-weight: 700;
+    font-weight: 700 !important;
     margin-bottom: 0.75rem;
 }
 
-.bd-article-container .bd-article h2 {
+.bd-main .bd-content .bd-article-container h2,
+.bd-main .bd-content .bd-article-container article h2 {
     font-size: 1.25rem !important;
-    font-weight: 600;
+    font-weight: 600 !important;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.bd-article-container .bd-article h3 {
+.bd-main .bd-content .bd-article-container h3,
+.bd-main .bd-content .bd-article-container article h3 {
     font-size: 1.1rem !important;
-    font-weight: 600;
+    font-weight: 600 !important;
     margin-top: 1.25rem;
     margin-bottom: 0.5rem;
 }
 
-.bd-article-container .bd-article h4 {
+.bd-main .bd-content .bd-article-container h4,
+.bd-main .bd-content .bd-article-container article h4 {
     font-size: 1rem !important;
-    font-weight: 600;
+    font-weight: 600 !important;
     margin-top: 1rem;
     margin-bottom: 0.4rem;
 }
 
-.bd-article-container .bd-article p {
+.bd-main .bd-content .bd-article-container p {
     margin-bottom: 0.75rem;
+    font-size: 0.95rem !important;
+}
+
+.bd-main .bd-content .bd-article-container li {
+    font-size: 0.95rem !important;
+}
+
+.bd-main .bd-content .bd-article-container td,
+.bd-main .bd-content .bd-article-container th {
+    font-size: 0.95rem !important;
+}
+
+/* ---------- Prev/Next navigation spacing ---------- */
+.prev-next-area {
+    margin-top: 3rem !important;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e0e0e0;
 }
 
 /* ---------- PyData theme color overrides ---------- */
@@ -158,16 +179,17 @@ html[data-theme="light"] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
-    font-size: 0.8rem;
+    width: 14px;
+    height: 14px;
+    font-size: 0.6rem;
     font-weight: 700;
     color: var(--movensys-gray);
     cursor: pointer;
     border: 1px solid #d0d0d0;
-    border-radius: 3px;
+    border-radius: 2px;
     background: #f8f8f8;
-    margin-right: 0.4rem;
+    margin-left: 0.3rem;
+    margin-right: 1rem;
     flex-shrink: 0;
     line-height: 1;
     user-select: none;
