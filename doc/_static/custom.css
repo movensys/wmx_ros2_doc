@@ -49,6 +49,12 @@ html[data-theme="light"] {
     color: var(--movensys-gray-dark);
 }
 
+/* ---------- Push search & icons to far right ---------- */
+.bd-header .navbar-header-items__end {
+    margin-left: auto;
+    padding-right: 1rem;
+}
+
 /* ---------- Left Sidebar (NVIDIA-style flat tree nav) ---------- */
 .bd-sidebar-primary {
     border-right: 1px solid #e0e0e0;
