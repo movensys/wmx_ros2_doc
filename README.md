@@ -1,12 +1,12 @@
 # WMX ROS2 Documentation
 
-Technical documentation for the **WMX ROS2** robotic manipulator control system, built on the [Movensys](https://www.movensys.com/) WMX3 motion control platform.
+Technical documentation for the **WMX ROS2** robotic manipulator control system, built on the [MOVENSYS](https://www.movensys.com/) WMX3 motion control platform.
 
 **Documentation Site:** https://movensys.github.io/wmx_ros2_doc/index.html
 
 ## Overview
 
-WMX ROS2 bridges the Movensys WMX3 EtherCAT-based motion controller with ROS2, enabling control of 6-DOF robotic manipulators (e.g., Dobot CR3A) with motion planning through MoveIt2 and NVIDIA Isaac cuMotion.
+WMX ROS2 bridges the MOVENSYS WMX3 EtherCAT-based motion controller with ROS2, enabling control of 6-DOF robotic manipulators (e.g., Dobot CR3A) with motion planning through MoveIt2 and NVIDIA Isaac cuMotion.
 
 ## Documentation Contents
 
@@ -55,4 +55,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on editing documentation, 
 
 ## License
 
-Copyright 2026 Movensys. All rights reserved.
+Copyright 2026 MOVENSYS. All rights reserved.
