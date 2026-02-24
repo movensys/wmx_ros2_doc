@@ -2,7 +2,7 @@
 
 Technical documentation for the **WMX ROS2** robotic manipulator control system, built on the [Movensys](https://www.movensys.com/) WMX3 motion control platform.
 
-**Documentation Site:** [https://rkdcodms.github.io/wmx_ros2_doc/](https://rkdcodms.github.io/wmx_ros2_doc/)
+**Documentation Site:** ((https://movensys.github.io/wmx_ros2_doc/index.html))
 
 ## Overview
 
