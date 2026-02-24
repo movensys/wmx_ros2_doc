@@ -200,7 +200,7 @@ Hardware
   Jetson Orin for embedded)
 - Stage 4 is recommended to run on **a GPU with 16 GB** or more
 - Intel RealSense depth camera (for Stage 3 real robot and Stage 4)
-- Dobot CR3A manipulator with WMX3 EtherCAT drives (for HiL/Real modes)
+- Dobot CR3A manipulator with WMX EtherCAT drives (for HiL/Real modes)
 
 Software
 ^^^^^^^^
@@ -216,7 +216,7 @@ Software
 - 3D USD assets from ``robotics_isaac_sim`` repository
 
 For HiL and Real Robot modes, the core WMX ROS2 packages must be built and
-the WMX3 runtime (LMX) installed (see :doc:`../getting_started/index`).
+the WMX Runtime (LMX) installed (see :doc:`../getting_started/index`).
 
 
 Installation
@@ -762,7 +762,7 @@ packages (:doc:`../packages/packages`). The connection point is the
      - WMX ROS2 encoder feedback (``/joint_states``)
    * - Trajectory execution
      - Per-point publish with time delay to ``/joint_command``
-     - WMX3 cubic spline interpolation via EtherCAT
+     - WMX cubic spline interpolation via EtherCAT
    * - Gripper service
      - ``simulation_action`` (sets picker position)
      - WMX ROS2 ``/wmx/set_gripper`` (EtherCAT digital I/O)

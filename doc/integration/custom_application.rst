@@ -11,7 +11,7 @@ source code.
 
 The system is designed for **generic 6-DOF robot arms** with EtherCAT servo
 drives. The ROS2 interface layer is independent of the specific robot model --
-only the configuration files and WMX3 parameter files are robot-specific.
+only the configuration files and WMX parameter files are robot-specific.
 
 There are two approaches to controlling the robot:
 
@@ -214,7 +214,7 @@ position to the specified joint targets.
 - Maximum **1000 waypoints** per trajectory
 - The first point's ``time_from_start`` is forced to zero by the server
 - If the last point is within 1 ms of the previous point, it is dropped
-- Only ``positions`` and ``time_from_start`` are used by the WMX3 engine
+- Only ``positions`` and ``time_from_start`` are used by the WMX engine
 - The server blocks until motion completes (no intermediate feedback)
 
 C++ Example: Send a Trajectory
@@ -639,7 +639,7 @@ Configuration files to create or modify
    * - **YAML config** (e.g., ``new_robot_config.yaml``)
      - Set ``joint_number``, ``joint_name`` list, ``joint_feedback_rate``,
        gripper values, topic names, and ``wmx_param_file_path``
-   * - **WMX3 XML parameters** (e.g., ``new_robot_wmx_parameters.xml``)
+   * - **WMX XML parameters** (e.g., ``new_robot_wmx_parameters.xml``)
      - Define gear ratios, axis polarities, encoder modes, homing parameters,
        and limit switch settings for each servo axis
    * - **Launch file** (e.g., ``wmx_ros2_new_robot.launch.py``)
@@ -655,7 +655,7 @@ Steps to adapt
    each EtherCAT servo drive in your robot. Check if matching ENI files exist
    in the ``eni/`` directory.
 
-2. **Create the WMX3 parameter file** -- Copy ``cr3a_wmx_parameters.xml`` and
+2. **Create the WMX parameter file** -- Copy ``cr3a_wmx_parameters.xml`` and
    modify gear ratios, polarities, and encoder settings for your servo drives.
    The gear ratio maps encoder counts to radians:
    ``numerator = encoder_counts_per_revolution``,
@@ -692,5 +692,5 @@ What stays the same
 - The ``wmx_ros2_message`` custom message types
 - The build process
 
-See :doc:`../architecture/system_overview` for the full architecture and
+See :doc:`../getting_started/system_overview` for the full architecture and
 :doc:`../packages/wmx_ros2_package` for node and parameter details.

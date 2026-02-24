@@ -17,6 +17,9 @@ launching your first robot control session with WMX ROS2.
       | :doc:`configure_environment`
       | :doc:`mock_hardware`
       | :doc:`physical_hardware`
+      | :doc:`system_overview`
+      | :doc:`communication`
+      | :doc:`flowcharts`
 
 .. toctree::
    :maxdepth: 1
@@ -29,3 +32,6 @@ launching your first robot control session with WMX ROS2.
    configure_environment
    mock_hardware
    physical_hardware
+   system_overview
+   communication
+   flowcharts

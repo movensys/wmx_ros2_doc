@@ -194,7 +194,7 @@ For standalone operation via ``wmx_ros2_general_node`` without MoveIt2:
 Error Handling Flow
 -------------------
 
-WMX3 Device Creation Errors
+WMX Device Creation Errors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 All nodes implement a retry mechanism for device creation to handle race conditions

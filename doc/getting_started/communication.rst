@@ -88,7 +88,7 @@ ROS2 Services
    * - ``/wmx/engine/set_device``
      - ``wmx_ros2_message/srv/SetEngine``
      - ``wmx_ros2_general_node``
-     - Create (``data=true``) or close (``data=false``) a WMX3 device.
+     - Create (``data=true``) or close (``data=false``) a WMX device.
        Requires ``path`` (e.g., ``/opt/lmx/``) and ``name`` fields.
    * - ``/wmx/engine/set_comm``
      - ``std_srvs/srv/SetBool``
@@ -98,7 +98,7 @@ ROS2 Services
    * - ``/wmx/engine/get_status``
      - ``std_srvs/srv/Trigger``
      - ``wmx_ros2_general_node``
-     - Query the current WMX3 engine state. Returns one of: ``Idle``,
+     - Query the current WMX engine state. Returns one of: ``Idle``,
        ``Running``, ``Communicating``, ``Shutdown``, ``Unknown``.
    * - ``/wmx/axis/set_on``
      - ``wmx_ros2_message/srv/SetAxis``
@@ -162,7 +162,7 @@ The ``FollowJointTrajectory`` action is the primary interface between motion pla
 
 1. Validates that the number of trajectory points does not exceed 1000
 2. Extracts joint positions and time intervals from each trajectory point
-3. Constructs a WMX3 cubic spline command (``PointTimeSplineCommand``) with:
+3. Constructs a WMX cubic spline command (``PointTimeSplineCommand``) with:
 
    - ``dimensionCount`` = number of joints (typically 6)
    - Position array for each point across all joints
@@ -176,7 +176,7 @@ The ``FollowJointTrajectory`` action is the primary interface between motion pla
 **Result:**
 
 - On success: ``error_code = 0``
-- On failure: ``error_code`` set to the WMX3 error code, goal is aborted
+- On failure: ``error_code`` set to the WMX error code, goal is aborted
 
 **Cancel:**
 
@@ -189,18 +189,18 @@ The ``FollowJointTrajectory`` action is the primary interface between motion pla
    The default value ``/movensys_manipulator_arm_controller/follow_joint_trajectory``
    matches the controller name expected by the MoveIt2 configuration.
 
-WMX3 Hardware Communication
+WMX Hardware Communication
 ----------------------------
 
-The WMX3 API layer provides real-time communication with servo drives over EtherCAT.
+The WMX API layer provides real-time communication with servo drives over EtherCAT.
 All three active nodes (``manipulator_state``, ``follow_joint_trajectory_server``,
-``wmx_ros2_general_node``) create independent WMX3 device handles to the same
+``wmx_ros2_general_node``) create independent WMX device handles to the same
 shared motion engine.
 
 Device Initialization
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Each node creates a WMX3 device connection on startup:
+Each node creates a WMX device connection on startup:
 
 .. code-block:: cpp
 
@@ -210,7 +210,7 @@ Each node creates a WMX3 device connection on startup:
 All nodes use a retry mechanism (5 attempts, 2-second intervals) to handle lock
 contention when multiple nodes start simultaneously.
 
-WMX3 API Libraries
+WMX API Libraries
 ^^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
@@ -241,7 +241,7 @@ WMX3 API Libraries
        communication start/stop, error handling
    * - ``imdll``
      - (internal)
-     - All nodes -- internal WMX3 dependency
+     - All nodes -- internal WMX dependency
 
 EtherCAT Communication Cycle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -263,7 +263,7 @@ EtherCAT Communication Cycle
                                     │  GetStatus()  │──► Publish /joint_states
                                     └───────────────┘
 
-Once communication is started, the WMX3 engine maintains a real-time cyclic exchange
+Once communication is started, the WMX engine maintains a real-time cyclic exchange
 with all connected servo drives. The ``GetStatus()`` call reads the latest process
 data (positions, velocities, torques, status bits) from shared memory.
 

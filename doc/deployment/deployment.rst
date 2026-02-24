@@ -13,7 +13,7 @@ Prerequisites
 
 - Ubuntu 22.04 or 24.04
 - ROS2 Humble or Jazzy installed
-- LMX (WMX3 runtime) installed at ``/opt/lmx/``
+- LMX(WMX Runtime) installed at ``/opt/lmx/``
 - ROS2 dependencies installed (see :doc:`../getting_started/index`)
 
 Clone and Build
@@ -91,12 +91,12 @@ Docker
 .. note::
 
    Docker support is planned for future releases. The WMX ROS2 application
-   requires access to EtherCAT network interfaces and the WMX3 runtime at
+   requires access to EtherCAT network interfaces and the WMX Runtime at
    ``/opt/lmx/``, which requires special Docker configuration (host
    networking, device passthrough, volume mounts for ``/opt/lmx/``).
 
 .. todo::
 
-   Create a Docker image with ROS2, WMX3 runtime, and pre-built
+   Create a Docker image with ROS2, WMX Runtime, and pre-built
    ``wmx_ros2_application`` packages. Will require ``--net=host``,
    ``--privileged``, and ``-v /opt/lmx:/opt/lmx`` for EtherCAT access.

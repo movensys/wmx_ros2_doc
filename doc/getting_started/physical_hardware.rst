@@ -5,7 +5,7 @@ Prerequisites
 -------------
 
 - The WMX ROS2 workspace is built and sourced
-- LMX (WMX3 runtime) is installed at ``/opt/lmx/``
+- LMX(WMX Runtime) is installed at ``/opt/lmx/``
 - EtherCAT cable is connected between compute platform and first servo drive
 - Robot and all servo drives are powered on
 - You have ``sudo`` privileges
@@ -93,7 +93,7 @@ Startup Sequence
 
 When launched, three nodes initialize in parallel:
 
-1. **Device creation** -- Each node creates a WMX3 device handle
+1. **Device creation** -- Each node creates a WMX device handle
 2. **EtherCAT scan** -- Network scan discovers all servo drives
 3. **Communication start** -- Real-time EtherCAT communication begins
 4. **Parameter loading** -- Gear ratios and axis polarities loaded from XML
@@ -126,4 +126,4 @@ Shutdown
 ---------
 
 Press ``Ctrl+C`` in the launch terminal. The nodes will automatically disable
-servos, stop EtherCAT communication, and close the WMX3 device.
+servos, stop EtherCAT communication, and close the WMX device.

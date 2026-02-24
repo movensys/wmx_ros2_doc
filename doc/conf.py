@@ -1,7 +1,7 @@
 # -- Project information -----------------------------------------------------
 project = 'WMX ROS2 Documentation'
-copyright = '2026, Movensys'
-author = 'Movensys'
+copyright = '2026, MOVENSYS'
+author = 'MOVENSYS'
 release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------

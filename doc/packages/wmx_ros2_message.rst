@@ -148,7 +148,7 @@ Comprehensive per-axis status feedback published at 100 Hz by the
    float64[] actual_velocity  # Actual velocity (rad/s)
    float64[] actual_torque    # Actual torque (Nm)
 
-The status flags use ``int32`` (not ``bool``) to match the WMX3
+The status flags use ``int32`` (not ``bool``) to match the WMX
 ``CoreMotionStatus`` structure directly.
 
 **Used by:**
@@ -161,7 +161,7 @@ Service Definitions
 SetEngine
 ^^^^^^^^^^
 
-Controls the WMX3 engine lifecycle (device creation and communication).
+Controls the WMX engine lifecycle (device creation and communication).
 
 .. code-block:: text
 

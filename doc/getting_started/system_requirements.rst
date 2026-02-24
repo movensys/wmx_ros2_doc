@@ -1,6 +1,31 @@
 System Requirements
 ===================
 
+WMX Motion Control Engine
+--------------------------
+
+The WMX motion control engine is a high-performance, real-time motion control
+platform developed by MOVENSYS. It provides deterministic servo control over
+EtherCAT fieldbus and serves as the hardware abstraction layer between ROS2
+and physical servo drives.
+
+**Key features:**
+
+- **Real-time EtherCAT master** -- manages cyclic communication with servo
+  drives at deterministic update rates
+- **Multi-axis coordination** -- supports synchronized motion across 6+ axes
+  with cubic spline interpolation (``CSplinePos``)
+- **Shared-memory architecture** -- multiple ROS2 nodes connect to the same
+  WMX engine instance through independent device handles, enabling concurrent
+  state reading and command execution
+- **Hardware abstraction** -- provides a unified C++ API (``CoreMotion``,
+  ``AdvancedMotion``, ``Io``, ``Ecat``, ``WMX3Api``) so ROS2 nodes remain
+  robot-agnostic; only configuration files differ between robots
+
+The WMX runtime (LMX) must be installed at ``/opt/lmx/`` before building or
+running the WMX ROS2 packages. See :doc:`install_dependencies` for verification
+steps.
+
 Operating System
 ----------------
 
@@ -20,7 +45,7 @@ Operating System
 
 .. note::
 
-   Root (sudo) access is required at runtime. The WMX3 motion control engine
+   Root (sudo) access is required at runtime. The WMX motion control engine
    and EtherCAT communication require kernel-level access to the network
    interface.
 
@@ -82,7 +107,7 @@ Hardware Requirements
 .. warning::
 
    The EtherCAT Ethernet port is **not** a standard TCP/IP connection. Do not
-   configure it with a regular IP address. The WMX3 engine controls this
+   configure it with a regular IP address. The WMX engine controls this
    interface at the raw Ethernet level.
 
 **Supported Robot:**
@@ -91,7 +116,7 @@ Hardware Requirements
   pneumatic gripper
 
 The architecture is robot-agnostic for any 6-DOF manipulator with EtherCAT
-servo drives. See :doc:`../architecture/architecture` for details on adapting
+servo drives. See :doc:`system_overview` for details on adapting
 to other robots.
 
 Supported Models & Platforms
@@ -108,7 +133,7 @@ Supported Models & Platforms
    * - Dobot CR3A
      - 6
      - 16.5 kg
-     - Fully supported. Configuration files and WMX3 parameters included.
+     - Fully supported. Configuration files and WMX parameters included.
 
 .. list-table::
    :header-rows: 1
