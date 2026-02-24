@@ -85,10 +85,10 @@ source code:
      - The first point's ``time_from_start`` is forced to **zero** by the
        server, regardless of the value you set.
    * - Used fields
-     - Only ``positions`` and ``time_from_start`` are passed to the WMX3
+     - Only ``positions`` and ``time_from_start`` are passed to the WMX
        engine. The ``velocities``, ``accelerations``, and ``effort`` fields
        are logged but not used for motion -- the cubic spline interpolation
-       is computed internally by WMX3.
+       is computed internally by WMX.
    * - Goal acceptance
      - All goals are accepted unconditionally (``ACCEPT_AND_EXECUTE``).
        No kinematic or collision validation is performed by the server.
@@ -295,4 +295,4 @@ See Also
 - :doc:`../api_reference/ros2_services` -- Service call workflow
 - :doc:`custom_application` -- Building custom applications with code examples
 - :doc:`moveit2_integration` -- MoveIt2 configuration
-- :doc:`../architecture/flowcharts` -- Trajectory execution flow diagram
+- :doc:`../getting_started/flowcharts` -- Trajectory execution flow diagram

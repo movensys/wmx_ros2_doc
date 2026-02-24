@@ -8,9 +8,9 @@ Device Creation Failures
 
 **Solutions:**
 
-- Verify LMX is installed: ``ls /opt/lmx/lib/libwmx3api.so``
+- Verify LMX(WMX Runtime) is installed: ``ls /opt/lmx/lib/libwmx3api.so``
 - Ensure you are running with ``sudo``
-- Check that no other WMX3 application is running (lock contention causes
+- Check that no other WMX application is running (lock contention causes
   error code 297)
 - If the error persists after stopping other applications, reboot to clear
   stale device locks
@@ -40,7 +40,7 @@ Communication Start Failures
   errors in the log)
 - Verify servo drives are properly daisy-chained (IN port to OUT port)
 - Remove any IP address from the EtherCAT network interface
-- Check the WMX3 engine status:
+- Check the WMX engine status:
 
   .. code-block:: bash
 
@@ -61,7 +61,7 @@ Joint States All Zero
      ros2 topic echo /wmx/axis/state --field amp_alarm
 
 - Verify ``wmx_param_file_path`` in the config YAML points to the correct
-  WMX3 parameter XML file for your robot
+  WMX parameter XML file for your robot
 - Clear alarms and re-enable servos:
 
   .. code-block:: bash
@@ -90,15 +90,15 @@ rejected.
 Trajectory Execution Failures
 ------------------------------
 
-**Symptom:** ``FollowJointTrajectory`` goal is aborted with a WMX3 error
+**Symptom:** ``FollowJointTrajectory`` goal is aborted with a WMX error
 code.
 
 **Solutions:**
 
 - Check that the trajectory has at most 1000 waypoints
 - Verify all servos are enabled and in the correct mode
-- Check the WMX3 error description in the action result ``error_string``
-- See :doc:`../architecture/flowcharts` for the error handling flow
+- Check the WMX error description in the action result ``error_string``
+- See :doc:`../getting_started/flowcharts` for the error handling flow
 
 Gripper Not Responding
 -----------------------
@@ -132,11 +132,11 @@ Build Errors
 ------------
 
 **Symptom:** Linker errors referencing ``coremotionapi``, ``wmx3api``, or
-other WMX3 libraries.
+other WMX libraries.
 
 **Solutions:**
 
-- Verify LMX libraries exist: ``ls /opt/lmx/lib/``
+- Verify LMX(WMX Runtime) libraries exist: ``ls /opt/lmx/lib/``
 - Ensure ``LD_LIBRARY_PATH`` includes ``/opt/lmx/lib/``:
 
   .. code-block:: bash
@@ -153,5 +153,5 @@ other WMX3 libraries.
 Getting Help
 ------------
 
-For additional support, contact your Movensys representative or file an
+For additional support, contact your MOVENSYS representative or file an
 issue on the project repository.

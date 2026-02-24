@@ -216,7 +216,7 @@ Hardware
 
 - Intel x86_64 PC (Ubuntu 22.04 or 24.04)
 - Dobot CR3A 6-DOF collaborative robot arm
-- WMX3 EtherCAT motion controller (for physical robot operation)
+- WMX EtherCAT motion controller (for physical robot operation)
 - Intel RealSense camera (for Stages 2 and 3 -- mounted on Link6)
 
 Software
@@ -226,7 +226,7 @@ Software
 - MoveIt2 (``moveit_ros_planning_interface``, ``moveit_msgs``)
 - Gazebo (``ros_gz_sim``, ``gz_ros2_control``) for simulation mode
 - CycloneDDS middleware (``rmw_cyclonedds_cpp``)
-- LMX (WMX3 runtime) installed at ``/opt/lmx/`` for hardware control
+- LMX(WMX Runtime) installed at ``/opt/lmx/`` for hardware control
 - Python packages: ``pyapriltags``, ``scipy`` (for Stage 2)
 - ``realsense2_camera`` ROS 2 package (for Stages 2 and 3)
 
@@ -752,7 +752,7 @@ driver via:
        ])
    )
 
-This requires ``sudo --preserve-env`` because the WMX3 EtherCAT driver needs
+This requires ``sudo --preserve-env`` because the WMX EtherCAT driver needs
 kernel-level access for real-time communication.
 
 **Switching between simulation and hardware** requires no code changes -- only

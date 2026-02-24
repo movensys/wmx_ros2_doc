@@ -7,7 +7,7 @@ Overview
 The ``wmx_ros2_package`` is the main application package of the WMX ROS2
 system. It contains all executable nodes, launch files, and configuration
 files for operating a 6-DOF manipulator (Dobot CR3A) and an optional
-differential drive mobile base through the WMX3 motion control engine.
+differential drive mobile base through the WMX motion control engine.
 
 **Package Metadata:**
 
@@ -129,12 +129,12 @@ CMake Dependencies (find_package)
    * - ``trajectory_msgs``
      - JointTrajectory messages
    * - ``wmx_ros2_message``
-     - Custom WMX3 interfaces
+     - Custom WMX interfaces
 
-WMX3 Libraries (External)
+WMX Libraries (External)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All executables link against the WMX3 shared libraries at ``/opt/lmx/lib/``:
+All executables link against the WMX shared libraries at ``/opt/lmx/lib/``:
 
 .. list-table::
    :header-rows: 1
@@ -157,10 +157,10 @@ All executables link against the WMX3 shared libraries at ``/opt/lmx/lib/``:
      - EtherCAT network scanning
    * - ``libwmx3api.so``
      - All nodes
-     - Core WMX3 device and engine management
+     - Core WMX device and engine management
    * - ``libimdll.so``
      - All nodes
-     - Internal WMX3 dependency
+     - Internal WMX dependency
 
 Nodes
 -----
@@ -224,7 +224,7 @@ Parameters
    * - ``wmx_param_file_path``
      - ``string``
      - (required)
-     - Absolute path to the WMX3 axis parameter XML file
+     - Absolute path to the WMX axis parameter XML file
 
 Published Topics
 """""""""""""""""
@@ -270,14 +270,14 @@ Shutdown Sequence
 
 1. Disable all servos (``SetServoOn(axis, 0)`` for each joint)
 2. Stop EtherCAT communication
-3. Close WMX3 device
+3. Close WMX device
 4. Wait 3 seconds for cleanup
 
 follow_joint_trajectory_server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Action server for executing MoveIt2-planned trajectories on the physical
-robot using WMX3 cubic spline interpolation.
+robot using WMX cubic spline interpolation.
 
 **Source:** ``src/follow_joint_trajectory_server.cpp``
 
@@ -324,10 +324,10 @@ The server processes trajectories as follows:
 
 - Validates point count (max 1000 points)
 - Adjusts timing (first point time = 0, removes points <1 ms apart)
-- Builds a WMX3 ``CSplinePosData`` structure for all joints
+- Builds a WMX ``CSplinePosData`` structure for all joints
 - Executes via ``AdvancedMotion::StartCSplinePos()``
 - Blocks on ``AdvancedMotion::Wait()`` until complete
-- Returns ``error_code = 0`` on success, or WMX3 error code on failure
+- Returns ``error_code = 0`` on success, or WMX error code on failure
 
 A spline buffer of 1000 points is allocated in the constructor via
 ``AdvancedMotion::CreateSplineBuffer(0, 1000)`` and freed in the destructor.
@@ -357,8 +357,8 @@ Initialization
 wmx_ros2_general_node
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Standalone WMX3 engine and axis control node. Provides service-based access
-to all WMX3 engine lifecycle and axis control operations, plus topic-based
+Standalone WMX engine and axis control node. Provides service-based access
+to all WMX engine lifecycle and axis control operations, plus topic-based
 motion commands.
 
 **Source:** ``src/wmx_ros2_general_node.cpp`` (entry point),
@@ -393,7 +393,7 @@ Services
      - Description
    * - ``/wmx/engine/set_device``
      - ``wmx_ros2_message/srv/SetEngine``
-     - Create or close the WMX3 device handle
+     - Create or close the WMX device handle
    * - ``/wmx/engine/set_comm``
      - ``std_srvs/srv/SetBool``
      - Start or stop EtherCAT communication
@@ -478,7 +478,7 @@ diff_drive_controller (Disabled)
 
 Differential drive controller for mobile base applications. Converts
 ``geometry_msgs/Twist`` commands into individual wheel velocity commands via
-the WMX3 engine.
+the WMX engine.
 
 .. note::
 
@@ -505,11 +505,11 @@ Parameters
    * - ``left_axis``
      - ``int``
      - ``0``
-     - WMX3 axis index for left wheel
+     - WMX axis index for left wheel
    * - ``right_axis``
      - ``int``
      - ``1``
-     - WMX3 axis index for right wheel
+     - WMX axis index for right wheel
    * - ``rate``
      - ``int``
      - ``10``
@@ -549,7 +549,7 @@ Parameters
    * - ``wmx_param_file_path``
      - ``string``
      - (required)
-     - Path to WMX3 parameter XML file
+     - Path to WMX parameter XML file
 
 Subscribed Topics
 """"""""""""""""""
@@ -590,21 +590,21 @@ Timers
 
 Three timers run at the configured ``rate`` (Hz):
 
-- ``cmdVelStep()`` -- Convert ``Twist`` to wheel velocities and send to WMX3.
+- ``cmdVelStep()`` -- Convert ``Twist`` to wheel velocities and send to WMX.
   Includes safety checks: verifies engine is communicating, no amplifier
   alarms, and servos are enabled before sending commands.
-- ``encoderOmegaStep()`` -- Read actual wheel velocities from WMX3 and
+- ``encoderOmegaStep()`` -- Read actual wheel velocities from WMX and
   publish as ``Float64MultiArray``
 - ``encoderOdometryStep()`` -- Compute and publish odometry from wheel
   encoder feedback
 
-Example Application
+Demo Application
 --------------------
 
 wmx_ros2_general_example
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A standalone ROS2 client that demonstrates the full WMX3 control workflow
+A standalone ROS2 client that demonstrates the full WMX control workflow
 through the ``wmx_ros2_general_node`` services and topics.
 
 **Source:** ``example/wmx_ros2_general_example.cpp``
@@ -911,10 +911,10 @@ Parameters for the differential drive mobile base controller.
        wmx_param_file_path: /home/<user>/wmx_ros2_ws/src/wmx_ros2_application/
                             wmx_ros2_package/config/baymax_wmx_parameters.xml
 
-WMX3 Parameter XML Files
+WMX Parameter XML Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Two robot-specific WMX3 parameter files define per-axis motor configuration:
+Two robot-specific WMX parameter files define per-axis motor configuration:
 
 - ``cr3a_wmx_parameters.xml`` -- Parameters for the Dobot CR3A manipulator
   (gear ratios, polarities, limits, home positions for 6 joints)

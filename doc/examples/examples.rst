@@ -1,5 +1,5 @@
-Example Applications
-=====================
+Demo Applications
+=================
 
 Overview
 --------
@@ -12,7 +12,7 @@ and ``wmx_ros2_package`` packages.
 These examples demonstrate the **robot-agnostic design** of the system -- the
 same WMX ROS2 nodes and interfaces are used regardless of the specific robot
 model or compute platform. Only the configuration files (YAML parameters,
-WMX3 XML parameters, and launch files) differ between setups.
+WMX XML parameters, and launch files) differ between setups.
 
 .. list-table:: Example Summary
    :header-rows: 1
@@ -35,7 +35,7 @@ All examples require:
 
 - The core WMX ROS2 packages built and sourced
   (see :doc:`../getting_started/index`)
-- LMX (WMX3 runtime) installed at ``/opt/lmx/``
+- LMX(WMX Runtime) installed at ``/opt/lmx/``
 - EtherCAT hardware connected (for physical robot operation)
 
 Each example page describes any additional dependencies specific to that setup.

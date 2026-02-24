@@ -37,7 +37,7 @@ FollowJointTrajectory
      - ``follow_joint_trajectory_server.cpp``
 
 This action server receives a joint-space trajectory (a sequence of waypoints
-with timestamps) and executes it on the physical robot using the WMX3
+with timestamps) and executes it on the physical robot using the WMX
 ``AdvancedMotion::StartCSplinePos()`` cubic spline interpolation engine.
 
 Goal
@@ -69,8 +69,8 @@ The goal uses the standard ``trajectory_msgs/msg/JointTrajectory`` message:
 
    Only the ``positions`` and ``time_from_start`` fields of each trajectory
    point are used. The ``velocities``, ``accelerations``, and ``effort``
-   fields are logged for diagnostics but not passed to the WMX3 engine --
-   the cubic spline interpolation is computed internally by WMX3.
+   fields are logged for diagnostics but not passed to the WMX engine --
+   the cubic spline interpolation is computed internally by WMX.
 
 Result
 ^^^^^^^
@@ -84,7 +84,7 @@ Result
      - Description
    * - ``error_code``
      - ``int32``
-     - ``0`` on success; WMX3 error code on failure
+     - ``0`` on success; WMX error code on failure
    * - ``error_string``
      - ``string``
      - Not set by the server (default empty)
@@ -128,7 +128,7 @@ The server processes the trajectory as follows:
    in the selection.
 
 8. **Result** -- On success, ``error_code = 0`` and the goal succeeds.
-   On failure, the WMX3 error code is returned and the goal is aborted.
+   On failure, the WMX error code is returned and the goal is aborted.
 
 .. note::
 
@@ -188,7 +188,7 @@ The typical workflow is:
 1. MoveIt2 reads the current robot state from ``/joint_states``
 2. The planner computes a collision-free trajectory
 3. MoveIt2 sends the trajectory as a ``FollowJointTrajectory`` goal
-4. The ``follow_joint_trajectory_server`` executes it via WMX3 cubic spline
+4. The ``follow_joint_trajectory_server`` executes it via WMX cubic spline
 5. The ``manipulator_state`` node publishes real-time encoder feedback back
    to ``/joint_states`` at 500 Hz
 
@@ -201,5 +201,5 @@ See Also
 
 - :doc:`ros2_topics` -- ``/joint_states`` topic details
 - :doc:`ros2_services` -- ``/wmx/set_gripper`` service on the same node
-- :doc:`../architecture/flowcharts` -- Motion execution flow diagram
+- :doc:`../getting_started/flowcharts` -- Motion execution flow diagram
 - :doc:`../integration/moveit2_integration` -- MoveIt2 setup

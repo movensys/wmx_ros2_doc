@@ -105,7 +105,7 @@ from ``wmx_ros2_message``.
 Engine Management Services
 --------------------------
 
-These services manage the WMX3 engine lifecycle. They are hosted by the
+These services manage the WMX engine lifecycle. They are hosted by the
 ``wmx_ros2_general_node`` (source: ``wmx_ros2_engine.cpp``).
 
 /wmx/engine/set_device
@@ -119,7 +119,7 @@ These services manage the WMX3 engine lifecycle. They are hosted by the
    * - **Node**
      - ``wmx_ros2_general_node``
    * - **Purpose**
-     - Create or close the WMX3 device handle
+     - Create or close the WMX device handle
 
 .. list-table:: Request Fields
    :header-rows: 1
@@ -133,7 +133,7 @@ These services manage the WMX3 engine lifecycle. They are hosted by the
      - ``true`` to create device, ``false`` to close device
    * - ``path``
      - ``string``
-     - LMX installation path (typically ``/opt/lmx/``)
+     - LMX(WMX Runtime) installation path (typically ``/opt/lmx/``)
    * - ``name``
      - ``string``
      - Device name assigned via ``SetDeviceName()``
@@ -224,7 +224,7 @@ These services manage the WMX3 engine lifecycle. They are hosted by the
    * - **Node**
      - ``wmx_ros2_general_node``
    * - **Purpose**
-     - Query the current WMX3 engine state
+     - Query the current WMX engine state
 
 This service takes no request parameters. The response ``message`` field
 contains one of the following engine states:
@@ -502,7 +502,7 @@ Gripper Service
    * - **Configurable**
      - Service name set via ``wmx_gripper_topic`` parameter
 
-The gripper is controlled through the WMX3 ``Io::SetOutBit(0, 0, value)``
+The gripper is controlled through the WMX ``Io::SetOutBit(0, 0, value)``
 API, which sets digital output bit 0 on I/O module 0 in the EtherCAT chain.
 
 .. list-table:: Request
@@ -554,12 +554,12 @@ Service Call Workflow
 
 For standalone axis control (without MoveIt2), services are called in the
 following order. This sequence is demonstrated by
-``wmx_ros2_general_example``. See :doc:`../architecture/flowcharts` for
+``wmx_ros2_general_example``. See :doc:`../getting_started/flowcharts` for
 detailed flow diagrams.
 
 **Setup phase:**
 
-1. ``/wmx/engine/set_device`` -- Create the WMX3 device
+1. ``/wmx/engine/set_device`` -- Create the WMX device
 2. ``/wmx/engine/set_comm`` -- Start EtherCAT communication
 3. ``/wmx/axis/set_gear_ratio`` -- Configure encoder mapping
 4. ``/wmx/axis/set_polarity`` -- Set rotation directions
@@ -584,7 +584,7 @@ Error Handling
 
 All services follow a consistent error reporting pattern:
 
-- **Engine services** return ``success=false`` with the WMX3 error code and
+- **Engine services** return ``success=false`` with the WMX error code and
   human-readable description in ``message``
 - **Axis services** apply operations per-axis and return ``success=true`` only
   if **all** axes succeeded. The ``message`` field contains concatenated
@@ -598,5 +598,5 @@ See Also
 
 - :doc:`ros2_actions` -- FollowJointTrajectory action for MoveIt2 integration
 - :doc:`ros2_topics` -- Motion command topics and state feedback
-- :doc:`../architecture/flowcharts` -- Detailed error handling flow diagrams
+- :doc:`../getting_started/flowcharts` -- Detailed error handling flow diagrams
 - :doc:`../packages/wmx_ros2_message` -- Custom message type definitions

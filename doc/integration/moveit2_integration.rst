@@ -7,7 +7,7 @@ Overview
 MoveIt2 is the primary motion planning integration for the WMX ROS2
 application. It provides collision-aware trajectory planning, and the
 ``follow_joint_trajectory_server`` node executes the planned trajectories
-on real hardware via the WMX3 cubic spline engine.
+on real hardware via the WMX cubic spline engine.
 
 Architecture
 ------------
@@ -108,5 +108,5 @@ processes it as described in the :doc:`../api_reference/ros2_actions` page:
 - The server blocks until motion completes
 - Returns ``error_code = 0`` on success
 
-See :doc:`../architecture/flowcharts` for the detailed motion execution flow
+See :doc:`../getting_started/flowcharts` for the detailed motion execution flow
 diagram.

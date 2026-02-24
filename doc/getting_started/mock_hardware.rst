@@ -1,7 +1,7 @@
 Launch with Mock Hardware
 =========================
 
-The WMX ROS2 nodes communicate directly with the WMX3 engine over EtherCAT.
+The WMX ROS2 nodes communicate directly with the WMX engine over EtherCAT.
 There is no built-in mock hardware mode — nodes will attempt to connect to
 real hardware on startup. Below are ways to test without a physical robot.
 

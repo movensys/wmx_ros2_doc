@@ -13,15 +13,15 @@ Install the required ROS2 packages:
                        ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
    sudo apt install -y python3-colcon-common-extensions python3-rosdep
 
-Verify LMX Installation
--------------------------
+Verify LMX(WMX Runtime) Installation
+--------------------------------------
 
-The WMX3 runtime must be pre-installed at ``/opt/lmx/``:
+The WMX Runtime must be pre-installed at ``/opt/lmx/``:
 
 .. code-block:: bash
 
    ls /opt/lmx/include/WMX3Api.h
    ls /opt/lmx/lib/libwmx3api.so
 
-Both files must exist. If not, contact your Movensys representative for the
-LMX installer package.
+Both files must exist. If not, contact your MOVENSYS representative for the
+LMX(WMX Runtime) installer package.

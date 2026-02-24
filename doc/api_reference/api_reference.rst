@@ -14,7 +14,7 @@ for MoveIt2 feedback, ``/wmx/axis/state`` for detailed per-axis status, and
 
 **ROS2 Actions** describes the ``FollowJointTrajectory`` action server that
 receives multi-waypoint trajectories from MoveIt2 and executes them on the
-robot via WMX3 spline interpolation.
+robot via WMX spline interpolation.
 
 .. toctree::
    :maxdepth: 2

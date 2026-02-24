@@ -2,7 +2,7 @@ ROS2 Topics
 ============
 
 The WMX ROS2 application uses topics for real-time data streaming: encoder
-feedback from the robot and motion commands to the WMX3 engine. Topics are
+feedback from the robot and motion commands to the WMX engine. Topics are
 divided into published (output) and subscribed (input) categories.
 
 .. list-table:: Topic Summary
@@ -273,7 +273,7 @@ Axis State Monitoring
    * - **Source**
      - ``wmx_ros2_core_motion.cpp:axisStateStep()``
    * - **Purpose**
-     - Detailed per-axis status from the WMX3 CoreMotion API
+     - Detailed per-axis status from the WMX CoreMotion API
 
 Publishes comprehensive axis status including servo state, alarm status,
 limit switches, commanded vs. actual positions, velocities, and torques.
@@ -348,7 +348,7 @@ Subscribed Topics (Motion Commands)
 
 These topics accept motion commands and are subscribed to by the
 ``wmx_ros2_general_node`` (source: ``wmx_ros2_core_motion.cpp``). Publishing
-to these topics directly controls the WMX3 engine and moves real motors.
+to these topics directly controls the WMX engine and moves real motors.
 
 .. warning::
 
