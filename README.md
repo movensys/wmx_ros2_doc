@@ -12,13 +12,11 @@ WMX ROS2 bridges the MOVENSYS WMX3 EtherCAT-based motion controller with ROS2, e
 
 | Section | Description |
 |---------|-------------|
-| **Getting Started** | System requirements, ROS2 installation, workspace setup, mock & physical hardware |
+| **Getting Started** | System requirements, ROS2 installation, workspace setup, mock & physical hardware, architecture |
 | **Packages** | `wmx_ros2_message` and `wmx_ros2_package` node documentation |
 | **Integration** | MoveIt2, NVIDIA Isaac cuMotion, custom planner & application guides |
-| **Architecture** | System design, communication flow, and sequence diagrams |
-| **Performance** | Non-functional requirements and benchmarks |
 | **API Reference** | ROS2 services, topics, and actions |
-| **Examples** | NVIDIA Jetson Orin and Intel x86_64 setups |
+| **Demo application** | NVIDIA Jetson Orin and Intel x86_64 setups |
 | **Deployment** | Source build, Debian package, and Docker options |
 | **Troubleshooting** | Common issues and solutions |
 
