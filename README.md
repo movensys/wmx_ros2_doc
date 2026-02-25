@@ -49,9 +49,6 @@ Open `doc/_build/html/index.html` in your browser to view the documentation.
 
 Documentation is automatically built and deployed to GitHub Pages via GitHub Actions on every push to `main`.
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on editing documentation, adding new pages, RST/Markdown syntax, and the Git workflow.
 
 ## License
 
