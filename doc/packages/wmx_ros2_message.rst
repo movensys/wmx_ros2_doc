@@ -9,23 +9,6 @@ interfaces used by all nodes in the WMX ROS2 application. It contains no
 executable nodes -- only interface definitions that are compiled into C++
 and Python bindings by ``rosidl``.
 
-**Package Metadata:**
-
-.. list-table::
-   :widths: 25 75
-
-   * - **Package Name**
-     - ``wmx_ros2_message``
-   * - **Version**
-     - 0.0.0
-   * - **Maintainer**
-     - mfikih15 (lp02781@gmail.com)
-   * - **Build Type**
-     - ``ament_cmake``
-   * - **C++ Standard**
-     - C++17
-   * - **C Standard**
-     - C99
 
 Package Structure
 -----------------
