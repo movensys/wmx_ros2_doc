@@ -12,24 +12,45 @@ on real hardware via the WMX cubic spline engine.
 Architecture
 ------------
 
-.. code-block:: text
+.. mermaid::
+   :caption: MoveIt2 integration — end-to-end data flow
+   :zoom:
 
-   MoveIt2 Planner
-       │
-       ├── Reads /joint_states (current robot state)
-       │     └── Published by manipulator_state @ 500 Hz
-       │
-       ├── Plans collision-free trajectory
-       │
-       └── Sends FollowJointTrajectory Action Goal
-             │
-             └── follow_joint_trajectory_server
-                   │
-                   ├── Converts trajectory to WMX3 CSplinePos command
-                   ├── Executes via AdvancedMotion API
-                   └── Returns result (success/failure)
-                         │
-                         EtherCAT → Servo Drives → Robot Motion
+   %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a73e8", "primaryTextColor": "#fff", "primaryBorderColor": "#1558b0", "lineColor": "#555"}}}%%
+   flowchart TB
+       UA["User / RViz2 Plugin<br/>(set target pose or joint goal)"]
+
+       subgraph WMX_ROS["WMX ROS2 Nodes"]
+           MS["manipulator_state<br/>Publishes /joint_states @ 500 Hz"]
+           FJT["follow_joint_trajectory_server<br/>WMX3 cubic spline  (max 1000 waypoints)"]
+       end
+
+       subgraph MV2["MoveIt2"]
+           MV["Motion Planner<br/>(OMPL / CHOMP / Pilz)"]
+           CS["Current State Monitor<br/>Reads /joint_states"]
+       end
+
+       subgraph HW["Hardware"]
+           AM["AdvancedMotion API<br/>StartCSplinePos()"]
+           EC["EtherCAT Bus"]
+           SD["Servo Drives J1–J6"]
+           ROB["Dobot CR3A"]
+       end
+
+       UA -->|"Plan & Execute request"| MV
+       CS -->|"Current joint positions"| MV
+       MV -->|"FollowJointTrajectory<br/>action goal"| FJT
+       MS -->|"/joint_states"| CS
+
+       FJT -->|"CSplinePos trajectory<br/>via WMX API"| AM
+       AM -->|"Real-time spline"| EC
+       EC --> SD --> ROB
+       ROB -->|"Encoder feedback"| MS
+       FJT -->|"Result: success / error_code"| MV
+
+       style WMX_ROS fill:#e8f0fe,stroke:#1a73e8,color:#1a1a1a
+       style MV2 fill:#e6f4ea,stroke:#34a853,color:#1a1a1a
+       style HW fill:#fce8e6,stroke:#ea4335,color:#1a1a1a
 
 Prerequisites
 -------------
