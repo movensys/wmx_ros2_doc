@@ -39,6 +39,28 @@ The workspace is located at::
      - 3D volumetric mapping for collision-free planning
      - ``isaac_ros_nvblox``
 
+The diagram below shows the four stages and how each one builds on the previous:
+
+.. mermaid::
+   :caption: Isaac Manipulator — 4-stage progressive capability workflow
+   :zoom:
+
+   %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a73e8", "primaryTextColor": "#fff", "primaryBorderColor": "#1558b0", "lineColor": "#555"}}}%%
+   flowchart LR
+       S1["Stage 1<br/>Basic Trajectory<br/>─────────────<br/>Cartesian + joint motion<br/>MoveIt2 OMPL planner<br/>─────────────<br/>No GPU required"]
+       S2["Stage 2<br/>cuMotion Planning<br/>─────────────<br/>GPU-accelerated<br/>trajectory planning<br/>─────────────<br/>isaac_ros_cumotion"]
+       S3["Stage 3<br/>AprilTag Pick & Place<br/>─────────────<br/>Vision-guided<br/>autonomous pick<br/>─────────────<br/>isaac_ros_apriltag"]
+       S4["Stage 4<br/>NvBlox Obstacle<br/>Avoidance<br/>─────────────<br/>3D voxel mapping<br/>collision-free plan<br/>─────────────<br/>isaac_ros_nvblox"]
+
+       S1 -->|"+ GPU planner"| S2
+       S2 -->|"+ Camera vision"| S3
+       S3 -->|"+ Depth camera<br/>+ 3D mapping"| S4
+
+       style S1 fill:#34a853,color:#fff
+       style S2 fill:#1a73e8,color:#fff
+       style S3 fill:#fa7b17,color:#fff
+       style S4 fill:#ea4335,color:#fff
+
 Each stage can run in three environments:
 
 - **Simulation** -- Isaac Sim provides both the physics engine and sensor
@@ -151,43 +173,91 @@ The ``simulation_action`` node bridges MoveIt2 and Isaac Sim in simulation mode:
 Data Flow (Simulation Mode)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. mermaid::
+   :caption: Data flow — Simulation mode (Isaac Sim as physics engine)
+   :zoom:
 
-   MoveIt2 (OMPL/cuMotion)
-     |
-     | FollowJointTrajectory action
-     v
-   simulation_action
-     |
-     | /joint_command (sensor_msgs/JointState)
-     v
-   Isaac Sim
-     |
-     | /joint_states (sensor_msgs/JointState)
-     v
-   robot_state_publisher -> RViz2
+   %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a73e8", "primaryTextColor": "#fff", "primaryBorderColor": "#1558b0", "lineColor": "#555"}}}%%
+   flowchart TB
+       subgraph HOST["Host Machine"]
+           MV["MoveIt2<br/>OMPL / cuMotion planner"]
+           SA["simulation_action node<br/>FollowJointTrajectory server"]
+           RSP["robot_state_publisher"]
+           RV["RViz2"]
+           MV -->|"FollowJointTrajectory<br/>action goal"| SA
+           RSP --> RV
+       end
+
+       subgraph DOCKER["Docker Container  (NVIDIA Isaac ROS)"]
+           CU["cumotion_planner_node<br/>(Stage 2+)"]
+           AT["isaac_ros_apriltag<br/>(Stage 3)"]
+           NV["nvblox_node<br/>(Stage 4)"]
+           SEG["robot_segmenter_node<br/>(Stage 4)"]
+       end
+
+       subgraph SIM["Isaac Sim"]
+           IS["Physics Engine<br/>+ Sensor Simulation"]
+       end
+
+       SA -->|"/joint_command<br/>sensor_msgs/JointState"| IS
+       IS -->|"/joint_states<br/>sensor_msgs/JointState"| RSP
+       IS -->|"/joint_states"| MV
+       MV <-->|"planning pipeline"| CU
+       IS -->|"/image_hand/rgb<br/>(Stage 3)"| AT
+       IS -->|"/image_nvblox/depth<br/>(Stage 4)"| SEG
+       SEG -->|"robot-free depth"| NV
+       NV -->|"ESDF obstacle map"| CU
+
+       style HOST fill:#e8f0fe,stroke:#1a73e8,color:#1a1a1a
+       style DOCKER fill:#fce8e6,stroke:#ea4335,color:#1a1a1a
+       style SIM fill:#e6f4ea,stroke:#34a853,color:#1a1a1a
 
 Data Flow (HiL / Real Robot)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-::
+.. mermaid::
+   :caption: Data flow — Hardware-in-the-Loop / Real Robot mode
+   :zoom:
 
-   MoveIt2 (OMPL/cuMotion)
-     |
-     | FollowJointTrajectory action
-     v
-   WMX ROS2 follow_joint_trajectory_server
-     |
-     | WMX3 CSpline -> EtherCAT
-     v
-   Physical Robot Servos
-     |
-     | Encoder feedback via WMX3
-     v
-   WMX ROS2 /joint_states
-     |
-     +-> robot_state_publisher -> RViz2
-     +-> Isaac Sim (digital twin via /isaacsim/joint_command)
+   %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a73e8", "primaryTextColor": "#fff", "primaryBorderColor": "#1558b0", "lineColor": "#555"}}}%%
+   flowchart TB
+       subgraph IPC["IPC / Host Machine  (WMX ROS2 stack)"]
+           MV["MoveIt2<br/>OMPL / cuMotion planner"]
+           WR["WMX ROS2<br/>follow_joint_trajectory_server"]
+           MS["manipulator_state<br/>/joint_states @ 500 Hz"]
+           RSP["robot_state_publisher"]
+           RV["RViz2"]
+
+           MV -->|"FollowJointTrajectory<br/>action goal"| WR
+           MS -->|"/joint_states"| MV
+           MS -->|"/joint_states"| RSP
+           RSP --> RV
+       end
+
+       subgraph DOCKER["Docker Container  (NVIDIA Isaac ROS — optional)"]
+           CU["cumotion_planner_node"]
+       end
+
+       subgraph HW["Physical Hardware"]
+           EC["EtherCAT Bus<br/>(dedicated NIC)"]
+           SD["Servo Drives J1 – J6"]
+           ROB["Dobot CR3A"]
+           EC --> SD --> ROB
+       end
+
+       subgraph TWIN["Isaac Sim  (digital twin — optional)"]
+           IS["Isaac Sim<br/>mirrors real robot motion"]
+       end
+
+       WR -->|"WMX3 CSpline<br/>via AdvancedMotion API"| EC
+       ROB -->|"Encoder feedback<br/>via EtherCAT"| MS
+       MS -->|"/isaacsim/joint_command"| IS
+       MV <-->|"planning pipeline"| CU
+
+       style IPC fill:#e8f0fe,stroke:#1a73e8,color:#1a1a1a
+       style DOCKER fill:#fce8e6,stroke:#ea4335,color:#1a1a1a
+       style HW fill:#e6f4ea,stroke:#34a853,color:#1a1a1a
+       style TWIN fill:#fff3cd,stroke:#fbbc04,color:#1a1a1a
 
 
 Prerequisites
