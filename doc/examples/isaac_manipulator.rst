@@ -41,25 +41,10 @@ The workspace is located at::
 
 The diagram below shows the four stages and how each one builds on the previous:
 
-.. mermaid::
-   :caption: Isaac Manipulator — 4-stage progressive capability workflow
-   :zoom:
-
-   %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#1a73e8", "primaryTextColor": "#fff", "primaryBorderColor": "#1558b0", "lineColor": "#555"}}}%%
-   flowchart LR
-       S1["Stage 1<br/>Basic Trajectory<br/>MoveIt2 OMPL planner"]
-       S2["Stage 2<br/>cuMotion Planning<br/>isaac_ros_cumotion"]
-       S3["Stage 3<br/>AprilTag Pick & Place<br/>isaac_ros_apriltag"]
-       S4["Stage 4<br/>NvBlox Obstacle<br/>Avoidance<br/>isaac_ros_nvblox"]
-
-       S1 -->|"+ GPU planner"| S2
-       S2 -->|"+ Camera vision"| S3
-       S3 -->|"+ Depth cam + 3D mapping"| S4
-
-       style S1 fill:#34a853,color:#fff
-       style S2 fill:#1a73e8,color:#fff
-       style S3 fill:#fa7b17,color:#fff
-       style S4 fill:#ea4335,color:#fff
+.. image:: /_static/images/isaac_stages.png
+   :alt: Isaac Manipulator — 4-stage progressive capability workflow
+   :class: with-border
+   :align: center
 
 Each stage can run in three environments:
 
