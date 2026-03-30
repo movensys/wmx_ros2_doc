@@ -114,7 +114,7 @@ from ``wmx_ros2_message``.
 
    # Request
    bool data           # true = create device, false = close device
-   string path         # Device path (e.g., "/opt/lmx/")
+   string path         # Device path (e.g., "/opt/wmx3/")
    string name         # Device name (e.g., "wmx_ros2_general_test")
    ---
    # Response
@@ -177,7 +177,7 @@ These services manage the WMX engine lifecycle. They are hosted by
      - ``true`` to create device, ``false`` to close device
    * - ``path``
      - ``string``
-     - LMX(WMX Runtime) installation path (typically ``/opt/lmx/``)
+     - LMX(WMX Runtime) installation path (typically ``/opt/wmx3/``)
    * - ``name``
      - ``string``
      - Device name assigned via ``SetDeviceName()``
@@ -200,7 +200,7 @@ These services manage the WMX engine lifecycle. They are hosted by
 .. code-block:: bash
 
    ros2 service call /wmx/engine/set_device wmx_ros2_message/srv/SetEngine \
-     "{data: true, path: '/opt/lmx/', name: 'my_device'}"
+     "{data: true, path: '/opt/wmx3/', name: 'my_device'}"
 
 **Example -- Close device:**
 
