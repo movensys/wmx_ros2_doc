@@ -25,11 +25,7 @@ Select the archive that matches your Ubuntu version.
 Ubuntu 22.04
 ^^^^^^^^^^^^^
 
-**Download URL:**
-
-.. code-block:: text
-
-   http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu22.04_linux5.19.0_rt10.zip
+**Download URL:** `Ubuntu22.04_linux5.19.0_rt10.zip <http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu22.04_linux5.19.0_rt10.zip>`_
 
 Download via command line:
 
@@ -41,11 +37,7 @@ Download via command line:
 Ubuntu 24.04
 ^^^^^^^^^^^^^
 
-**Download URL:**
-
-.. code-block:: text
-
-   http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu24.04_linux6.15.2_rt2.zip
+**Download URL:** `Ubuntu24.04_linux6.15.2_rt2.zip <http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu24.04_linux6.15.2_rt2.zip>`_
 
 Download via command line:
 
