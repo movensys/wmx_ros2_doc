@@ -22,7 +22,7 @@ and physical servo drives.
   ``AdvancedMotion``, ``Io``, ``Ecat``, ``WMX3Api``) so ROS2 nodes remain
   robot-agnostic; only configuration files differ between robots
 
-The WMX runtime (LMX) must be installed at ``/opt/lmx/`` before building or
+The WMX runtime (LMX) must be installed at ``/opt/wmx3/`` before building or
 running the WMX ROS2 packages. See :doc:`install_dependencies` for verification
 steps.
 
