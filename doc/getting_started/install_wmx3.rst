@@ -86,6 +86,4 @@ re-run the installer or contact your MOVENSYS representative.
 
 .. note::
 
-   The WMX3 runtime requires a **PREEMPT_RT real-time kernel**. The download
-   archive includes the matching pre-built kernel packages and an NVIDIA driver
-   fix script (``fix-nvidia-rt.sh``) if you are running an NVIDIA GPU.
+   WMX3 currently supports simulation mode only.
