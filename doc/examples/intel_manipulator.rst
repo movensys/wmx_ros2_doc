@@ -233,7 +233,7 @@ Software
 - MoveIt2 (``moveit_ros_planning_interface``, ``moveit_msgs``)
 - Gazebo (``ros_gz_sim``, ``gz_ros2_control``) for simulation mode
 - CycloneDDS middleware (``rmw_cyclonedds_cpp``)
-- LMX(WMX Runtime) installed at ``/opt/lmx/`` for hardware control
+- LMX(WMX Runtime) installed at ``/opt/wmx3/`` for hardware control
 - Python packages: ``pyapriltags``, ``scipy`` (for Stage 2)
 - ``realsense2_camera`` ROS 2 package (for Stages 2 and 3)
 

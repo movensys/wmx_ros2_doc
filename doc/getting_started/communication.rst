@@ -5,7 +5,7 @@ The WMX ROS2 application uses three communication layers:
 
 - **ROS2 DDS** (CycloneDDS) -- All inter-node communication via topics, services,
   and actions over the ROS2 middleware.
-- **WMX API** -- C++ shared libraries at ``/opt/lmx/`` (``coremotionapi``,
+- **WMX API** -- C++ shared libraries at ``/opt/wmx3/`` (``coremotionapi``,
   ``advancedmotionapi``, ``ioapi``, ``ecapi``, ``wmx3api``) that bridge ROS2
   nodes to the motion engine via shared memory.
 - **EtherCAT** -- Real-time fieldbus managed by the WMX engine for deterministic,
@@ -35,7 +35,7 @@ The diagram below shows how the three layers stack and which libraries and buses
            N6["wmx_ethercat_node"]
        end
 
-       subgraph L2["Layer 2 — WMX API  (C++ shared libraries at /opt/lmx/)"]
+       subgraph L2["Layer 2 — WMX API  (C++ shared libraries at /opt/wmx3/)"]
            direction LR
            A1["libcoremotionapi<br/>Axis position & velocity"]
            A2["libadvancedmotionapi<br/>Cubic spline execution"]

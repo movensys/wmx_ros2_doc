@@ -21,6 +21,7 @@ Follow the steps in order. At step 6 choose the path that matches your setup
 
       | :doc:`system_requirements`
       | :doc:`install_ros2`
+      | :doc:`install_wmx3`
       | :doc:`install_dependencies`
       | :doc:`create_workspace`
       | :doc:`configure_environment`
@@ -34,6 +35,7 @@ Follow the steps in order. At step 6 choose the path that matches your setup
 
    system_requirements
    install_ros2
+   install_wmx3
    install_dependencies
    create_workspace
    configure_environment

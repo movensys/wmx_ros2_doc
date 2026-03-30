@@ -8,7 +8,7 @@ sequenceDiagram
     Note over N: Node starts — reads ROS2 parameters<br/>(joint_number, joint_feedback_rate, etc.)
 
     loop Retry up to 5×, 2 s interval
-        N->>W: CreateDevice("/opt/lmx/")
+        N->>W: CreateDevice("/opt/wmx3/")
         W-->>N: Device handle (or retry)
     end
 

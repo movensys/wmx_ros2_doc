@@ -8,7 +8,7 @@ Device Creation Failures
 
 **Solutions:**
 
-- Verify LMX(WMX Runtime) is installed: ``ls /opt/lmx/lib/libwmx3api.so``
+- Verify LMX(WMX Runtime) is installed: ``ls /opt/wmx3/lib/libwmx3api.so``
 - Ensure you are running with ``sudo``
 - Check that no other WMX application is running (lock contention causes
   error code 297)
@@ -136,12 +136,12 @@ other WMX libraries.
 
 **Solutions:**
 
-- Verify LMX(WMX Runtime) libraries exist: ``ls /opt/lmx/lib/``
-- Ensure ``LD_LIBRARY_PATH`` includes ``/opt/lmx/lib/``:
+- Verify LMX(WMX Runtime) libraries exist: ``ls /opt/wmx3/lib/``
+- Ensure ``LD_LIBRARY_PATH`` includes ``/opt/wmx3/lib/``:
 
   .. code-block:: bash
 
-     export LD_LIBRARY_PATH=/opt/lmx/lib:$LD_LIBRARY_PATH
+     export LD_LIBRARY_PATH=/opt/wmx3/lib:$LD_LIBRARY_PATH
 
 - Install missing ROS2 dependencies:
 
