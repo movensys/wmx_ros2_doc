@@ -15,73 +15,67 @@ Prerequisites
 Download the WMX3 Installer
 ----------------------------
 
-Select the archive that matches your Ubuntu version and download it using
-either your browser or ``wget``.
+Select the archive that matches your Ubuntu version.
 
-.. tabs::
+.. note::
 
-   .. tab:: Ubuntu 22.04
+   The download page may prompt for credentials. Use **guest** for both
+   username and password.
 
-      **Download URL:**
+Ubuntu 22.04
+^^^^^^^^^^^^^
 
-      .. code-block:: text
+**Download URL:**
 
-         http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu22.04_linux5.19.0_rt10.zip
+.. code-block:: text
 
-      **Browser:** Open the URL above. When prompted for credentials enter:
+   http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu22.04_linux5.19.0_rt10.zip
 
-      - **Username:** ``guest``
-      - **Password:** ``guest``
+Download via command line:
 
-      **Command line:**
+.. code-block:: bash
 
-      .. code-block:: bash
+   wget --user=guest --password=guest \
+        http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu22.04_linux5.19.0_rt10.zip
 
-         wget --user=guest --password=guest \
-              http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu22.04_linux5.19.0_rt10.zip
+Ubuntu 24.04
+^^^^^^^^^^^^^
 
-   .. tab:: Ubuntu 24.04
+**Download URL:**
 
-      **Download URL:**
+.. code-block:: text
 
-      .. code-block:: text
+   http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu24.04_linux6.15.2_rt2.zip
 
-         http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu24.04_linux6.15.2_rt2.zip
+Download via command line:
 
-      **Browser:** Open the URL above. When prompted for credentials enter:
+.. code-block:: bash
 
-      - **Username:** ``guest``
-      - **Password:** ``guest``
-
-      **Command line:**
-
-      .. code-block:: bash
-
-         wget --user=guest --password=guest \
-              http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu24.04_linux6.15.2_rt2.zip
+   wget --user=guest --password=guest \
+        http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/Ubuntu24.04_linux6.15.2_rt2.zip
 
 Install WMX3
 ------------
 
 Once the archive is downloaded, extract it and run the installer.
 
-.. tabs::
+Ubuntu 22.04
+^^^^^^^^^^^^^
 
-   .. tab:: Ubuntu 22.04
+.. code-block:: bash
 
-      .. code-block:: bash
+   unzip Ubuntu22.04_linux5.19.0_rt10.zip
+   cd Ubuntu22.04_linux5.19.0_rt10
+   sudo dpkg -i *wmx3-installer.deb
 
-         unzip Ubuntu22.04_linux5.19.0_rt10.zip
-         cd Ubuntu22.04_linux5.19.0_rt10
-         sudo dpkg -i *wmx3-installer.deb
+Ubuntu 24.04
+^^^^^^^^^^^^^
 
-   .. tab:: Ubuntu 24.04
+.. code-block:: bash
 
-      .. code-block:: bash
-
-         unzip Ubuntu24.04_linux6.15.2_rt2.zip
-         cd Ubuntu24.04_linux6.15.2_rt2
-         sudo dpkg -i *wmx3-installer.deb
+   unzip Ubuntu24.04_linux6.15.2_rt2.zip
+   cd Ubuntu24.04_linux6.15.2_rt2
+   sudo dpkg -i *wmx3-installer.deb
 
 The installer places the WMX3 runtime at ``/opt/wmx3/``.
 
