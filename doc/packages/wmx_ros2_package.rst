@@ -132,7 +132,7 @@ CMake Dependencies (find_package)
 WMX Libraries (External)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-All executables link against the WMX shared libraries at ``/opt/lmx/lib/``:
+All executables link against the WMX shared libraries at ``/opt/wmx3/lib/``:
 
 .. list-table::
    :header-rows: 1
@@ -278,7 +278,7 @@ Initialization Sequence
        Note over N: Reads all ROS2 parameters<br/>(joint_number, feedback_rate, xml path …)
 
        loop Retry up to 5×, 2 s interval
-           N->>W: CreateDevice("/opt/lmx/")
+           N->>W: CreateDevice("/opt/wmx3/")
            W-->>N: Device handle (or retry on failure)
        end
 
@@ -301,7 +301,7 @@ Initialization Sequence
        Note over N: Publishing /joint_states @ 500 Hz
 
 1. Declare and read all ROS2 parameters
-2. ``CreateDevice("/opt/lmx/")`` with retry (5 attempts, 2s interval)
+2. ``CreateDevice("/opt/wmx3/")`` with retry (5 attempts, 2s interval)
 3. ``Ecat::ScanNetwork(masterId=0)`` -- EtherCAT device discovery
 4. ``StartCommunication(timeout=10s)`` -- begin real-time cycle
 5. ``config->ImportAndSetAll(wmx_param_file_path)`` -- load axis parameters
@@ -392,7 +392,7 @@ Controls the pneumatic gripper via ``Io::SetOutBit(0, 0, value)``.
 Initialization
 """""""""""""""
 
-1. ``CreateDevice("/opt/lmx/")`` with retry (5 attempts, 2s interval)
+1. ``CreateDevice("/opt/wmx3/")`` with retry (5 attempts, 2s interval)
 2. Initialize CoreMotion and AdvancedMotion APIs
 3. ``CreateSplineBuffer(0, 1000)`` -- allocate trajectory buffer
 4. Create action server and gripper service

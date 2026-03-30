@@ -150,7 +150,7 @@ Controls the WMX engine lifecycle (device creation and communication).
 
    # Request
    bool   data      # true = create/start, false = close/stop
-   string path      # WMX3 device path (e.g., "/opt/lmx/")
+   string path      # WMX3 device path (e.g., "/opt/wmx3/")
    string name      # Device name identifier
    ---
    # Response
