@@ -383,6 +383,12 @@ code.literal {
     width: 100%;
 }
 
+/* ---------- Bold + Italic role ---------- */
+.bolditalic {
+    font-weight: bold;
+    font-style: italic;
+}
+
 .bd-content table.docutils th {
     background-color: #f4f8f0;
     border-bottom: 2px solid var(--movensys-green);
