@@ -42,6 +42,11 @@ For the ``5.15.148-tegra`` kernel, we also recommend using ``rt_igb.ko`` from ``
    wget --user=guest --password=guest http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/rt_igc_igb_5.15.148-rt-tegra.zip
    unzip rt_igc_igb_5.15.148-rt-tegra.zip
 
+After unzip this, please copy `rt_igb.ko` or `rt_igc.ko` file to `/opt/wmx3/platform/ethercat`
+
+.. code-block:: bash
+
+   cp rt_igc.ko rt_igb.ko /opt/wmx3/platform/ethercat
 
 3. Advantech MIC-743, NVIDIA Jetson Thor on Ubuntu 24.04
 
