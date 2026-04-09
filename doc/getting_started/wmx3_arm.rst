@@ -2,10 +2,10 @@
 
 :tocdepth: 1
 
-WMX3 on Industrial PC
+WMX3 on ARM-based PC
 =========================
 
-Installing WMX3 on an Industrial PC (IPC) is for real-world scenarios.
+Installing WMX3 on an ARM machine is for real-world scenarios.
 Before moving to real motor control testing on the IPC,
 it is recommended to :bi:`verify basic behavior in a simulator` (WMX3, Isaac Sim, Gazebo, etc.).
 
@@ -56,7 +56,7 @@ Other Environments
 ^^^^^^^^^^^^^^^^^^^
 
 Our product depends on Network Interface Card (NIC) drivers, not on specific IPCs.
-If you email your Ubuntu kernel version and NIC driver information to us (sjhwang@movensys.com),
+If you share Ubuntu kernel version and NIC driver information to issue boards (https://github.com/movensys/wmx-ros2/issues),
 we can support WMX3 installation for your environment.
 
 Check your kernel version:

@@ -12,12 +12,12 @@ It connects a PC to servo drives via RAN cable and provides deterministic 125-mi
 
 .. rubric:: Installation Guide
 
-- :doc:`WMX3 on Desktop PC <wmx3_desktop>`
-- :doc:`WMX3 on Industrial PC <wmx3_ipc>`
+- :doc:`WMX3 on x86-based PC <wmx3_x86>`
+- :doc:`WMX3 on arm-based PC <wmx3_arm>`
 
 .. toctree::
    :maxdepth: 1
    :hidden:
 
-   wmx3_desktop
-   wmx3_ipc
+   wmx3_x86
+   wmx3_arm

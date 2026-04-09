@@ -2,13 +2,11 @@
 
 :tocdepth: 1
 
-WMX3 on Desktop PC
+WMX3 on x86-based PC
 =========================
 
-Installing WMX3 on a desktop PC is intended for :bi:`simulation use`.
-Since ROS2 builds faster on x86 than on the ARM-based IPC,
-it is recommended to :bi:`verify basic behavior in a simulator` (WMX3, Isaac Sim, Gazebo, etc.)
-before moving to real motor control testing on the IPC.
+We recommend to :bi:`verify basic behavior in a simulator` (WMX3, Isaac Sim, Gazebo, etc.)
+before moving to real motor control testing on robot control machine.
 
 
 Download the WMX3 Installer
