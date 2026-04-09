@@ -2,7 +2,7 @@ Install WMX3
 ====================
 
 WMX3 is MOVENSYS's software-defined motion control stack.
-It connects a PC to servo drives via RAN cable and provides deterministic 125-microsecond cycle time control across up to 12 axes.
+It connects a PC to servo drives via Lan cable and provides deterministic cycle loop.
 
 
 .. rubric:: Prerequisites

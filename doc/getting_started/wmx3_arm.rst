@@ -17,18 +17,19 @@ Unzip ``wmx3_arm64_installers.zip`` from the download site.
 
 .. code-block:: bash
 
+   wget --user=guest --password=guest http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/wmx3_arm64_installers.zip
    unzip wmx3_arm64_installers.zip
 
 
 Currently supported IPCs are listed below.
 
-1. MIC-713, NVIDIA Jetson Orin NX on Ubuntu 20.04
+1. Advantech MIC-713, NVIDIA Jetson Orin NX on Ubuntu 20.04
 
 .. code-block:: bash
 
    sudo dpkg -i 20260403_Ubuntu20.04_linux-5.10.120-rt70-jetson-orin-nx-mic-713-wmx3-installer.deb
 
-2. MIC-733ao, NVIDIA Jetson Orin AGX on Ubuntu 22.04
+2. Advantech MIC-733ao, NVIDIA Jetson Orin AGX on Ubuntu 22.04
 
 .. code-block:: bash
 
@@ -38,12 +39,11 @@ For the ``5.15.148-tegra`` kernel, we also recommend using ``rt_igb.ko`` from ``
 
 .. code-block:: bash
 
-   sudo cp rt_igb.ko /lib/modules/$(uname -r)/kernel/drivers/net/
-   sudo depmod
-   sudo modprobe rt_igb
+   wget --user=guest --password=guest http://download.movensys.com:8111/webdav/WMX3_Installer/Linux/rt_igc_igb_5.15.148-rt-tegra.zip
+   unzip rt_igc_igb_5.15.148-rt-tegra.zip
 
 
-3. MIC-743, NVIDIA Jetson Thor on Ubuntu 24.04
+3. Advantech MIC-743, NVIDIA Jetson Thor on Ubuntu 24.04
 
 .. code-block:: bash
 
@@ -63,13 +63,13 @@ Check your kernel version:
 
 .. code-block:: bash
 
-   uname -r
+   uname -a
 
 Check your NIC drivers:
 
 .. code-block:: bash
 
-   lspci
+   lspci -v
 
 
 Verify the Installation
