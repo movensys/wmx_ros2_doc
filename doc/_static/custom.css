@@ -372,6 +372,12 @@ code.literal {
     border-radius: 4px;
 }
 
+/* ---------- Bold-italic inline role ---------- */
+.bi {
+    font-weight: bold;
+    font-style: italic;
+}
+
 /* ---------- Selection highlight ---------- */
 ::selection {
     background-color: rgba(109, 193, 63, 0.25);
