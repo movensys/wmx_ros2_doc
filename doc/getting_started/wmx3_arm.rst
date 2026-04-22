@@ -85,7 +85,7 @@ After installation, confirm that the required headers and libraries are present:
 .. code-block:: bash
 
    ls /opt/wmx3/include/WMX3Api.h
-   ls /opt/wmx3/lib/libwmx3api.so
+   ls /opt/wmx3/lib/libimdll.so
 
 Both files must exist before proceeding to the next step. If either is missing,
 re-run the installer or contact your MOVENSYS representative.
