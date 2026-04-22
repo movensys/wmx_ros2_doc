@@ -5,7 +5,7 @@ Create Workspace and Build
 
    mkdir -p ~/wmx_ros2_ws/src
    cd ~/wmx_ros2_ws/src
-   git clone git@bitbucket.org:mvs_app/wmx_ros2_application.git
+   git clone https://github.com/movensys/wmx-ros2.git
 
 Install rosdep dependencies:
 

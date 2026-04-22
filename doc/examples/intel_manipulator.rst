@@ -252,10 +252,7 @@ Installation
 
    .. code-block:: bash
 
-      git clone git@bitbucket.org:mvs_app/movensys_intel_manipulator.git
-      git clone git@bitbucket.org:mvs_app/movensys_manipulator_intel_config.git
-      git clone git@bitbucket.org:mvs_app/wmx_ros2_message.git
-      git clone git@bitbucket.org:mvs_app/wmx_ros2_package.git
+      git clone https://github.com/movensys/movensys_intel_manipulator.git
 
 3. **Install ROS 2 dependencies:**
 
