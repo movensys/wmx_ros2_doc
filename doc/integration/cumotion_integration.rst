@@ -17,7 +17,7 @@ Prerequisites
 - Ubuntu 22.04 with NVIDIA drivers installed
 - ROS2 Humble
 - Isaac ROS packages installed in a Docker container (see
-  ``movensys_isaac_manipulator/doc/2_docker.md`` for setup)
+  ``movensys_thor_manipulator/doc/2_docker.md`` for setup)
 - ``movensys_manipulator_isaac_config`` workspace built inside the container
 - WMX ROS2 application built on the IPC (see :doc:`../getting_started/index`)
 
@@ -75,7 +75,7 @@ Open the simulation scene:
 
 .. code-block:: bash
 
-   docker exec -u admin -it movensys_isaac_manipulator_container \
+   docker exec -u admin -it movensys_thor_manipulator_container \
      bash -lc 'source /opt/ros/humble/setup.bash && \
                source /home/admin/ws/install/setup.bash && \
                ros2 launch movensys_manipulator_isaac_config \
@@ -117,7 +117,7 @@ Open the HiL scene:
 
 .. code-block:: bash
 
-   docker exec -u admin -it movensys_isaac_manipulator_container \
+   docker exec -u admin -it movensys_thor_manipulator_container \
      bash -lc 'source /opt/ros/humble/setup.bash && \
                source /home/admin/ws/install/setup.bash && \
                ros2 launch movensys_manipulator_isaac_config \

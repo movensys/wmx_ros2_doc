@@ -4,7 +4,7 @@ Isaac Sim Manipulator
 Overview
 --------
 
-The **movensys_isaac_manipulator** workspace is a standalone ROS 2 Humble
+The **movensys_thor_manipulator** workspace is a standalone ROS 2 Humble
 application that integrates NVIDIA Isaac ROS with MoveIt2 for GPU-accelerated
 manipulator control. It provides a progressive 4-stage workflow that takes the
 Dobot CR3A from basic trajectory validation through vision-guided pick-and-place
@@ -12,7 +12,7 @@ with real-time obstacle avoidance.
 
 The workspace is located at::
 
-   ~/manipulator_ros_ws/src/movensys_isaac_manipulator/
+   ~/manipulator_ros_ws/src/movensys_thor_manipulator/
 
 .. list-table:: Stage Summary
    :header-rows: 1
@@ -223,7 +223,7 @@ Step 2: Clone Repository
 
    mkdir -p ${MANIPULATOR_ROS_WS}/src
    cd ${MANIPULATOR_ROS_WS}/src
-   git clone git@bitbucket.org:mvs_app/movensys_isaac_manipulator.git
+   git clone https://github.com/movensys/movensys_thor_manipulator.git
 
 Step 3: Run Setup Script
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -242,7 +242,7 @@ The ``setup.sh`` script performs the following:
 
 .. code-block:: bash
 
-   cd ${MANIPULATOR_ROS_WS}/src/movensys_isaac_manipulator
+   cd ${MANIPULATOR_ROS_WS}/src/movensys_thor_manipulator
    sudo chmod +x setup.sh
    ./setup.sh
 
@@ -269,7 +269,7 @@ For **Desktop**:
 
 .. code-block:: bash
 
-   cd ${MANIPULATOR_ROS_WS}/src/movensys_isaac_manipulator/docker
+   cd ${MANIPULATOR_ROS_WS}/src/movensys_thor_manipulator/docker
    docker compose -f manipulator_desktop.yaml build
    docker compose -f manipulator_desktop.yaml up -d
 
@@ -277,7 +277,7 @@ For **MIC / Jetson**:
 
 .. code-block:: bash
 
-   cd ${MANIPULATOR_ROS_WS}/src/movensys_isaac_manipulator/docker
+   cd ${MANIPULATOR_ROS_WS}/src/movensys_thor_manipulator/docker
    docker compose -f manipulator_mic.yaml build
    docker compose -f manipulator_mic.yaml up -d
 
@@ -286,7 +286,7 @@ the ``movensys_manipulator`` packages inside the container. Monitor the build:
 
 .. code-block:: bash
 
-   docker logs -f movensys_isaac_manipulator_container
+   docker logs -f movensys_thor_manipulator_container
 
 Wait for ``====== Build Terminated =======`` to appear.
 
@@ -306,7 +306,7 @@ Clone the Isaac Sim USD files:
 
 .. code-block:: bash
 
-   git clone git@bitbucket.org:mvs_app/robotics_isaac_sim.git ~/robotics_isaac_sim
+   git clone https://github.com/movensys/robotics_isaac_sim.git
 
 
 Configuration
@@ -450,7 +450,7 @@ Key environment variables in the Docker container (``.env``):
 
 - ``RMW_IMPLEMENTATION``: ``rmw_cyclonedds_cpp``
 - ``CYCLONEDDS_URI``: ``file:///home/admin/cyclonedds.xml``
-- ``CONTAINER_NAME``: ``movensys_isaac_manipulator_container``
+- ``CONTAINER_NAME``: ``movensys_thor_manipulator_container``
 
 Isaac Sim USD Files
 ^^^^^^^^^^^^^^^^^^^
@@ -487,7 +487,7 @@ container. Enter it with:
 
 .. code-block:: bash
 
-   docker exec -u admin -it movensys_isaac_manipulator_container \
+   docker exec -u admin -it movensys_thor_manipulator_container \
      bash -lc 'source /opt/ros/humble/setup.bash && \
                source /home/admin/ws/install/setup.bash && \
                source /workspaces/isaac_ros-dev/install/setup.bash && \
